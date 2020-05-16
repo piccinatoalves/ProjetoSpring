@@ -1,4 +1,4 @@
-package br.biblioteca.livros.controladores;
+package br.biblioteca.livros.controllers;
 
 import java.util.List;
 

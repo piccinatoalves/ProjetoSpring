@@ -13,7 +13,7 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.biblioteca.livros.controladores.LivroController;
+import br.biblioteca.livros.controllers.LivroController;
 import br.biblioteca.livros.model.Livro;
 
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
