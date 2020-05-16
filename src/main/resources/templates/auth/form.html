@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+	
+	<!-- Bootstrap core CSS -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" />
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap-theme.min.css}" />
+	<link rel="stylesheet" th:src="@{/webjars/jquery-ui/1.12.1/jquery-ui.css}" />
+<head>
+<meta charset="UTF-8" />
+<title>Login</title>
+
+	<style type="text/css">
+	body{
+style="background-image: url("public/images/livro_back.jpg");"
+}
+	.login-form {
+		width: 340px;
+    	margin: 50px auto;
+	}
+    .login-form form {
+    	margin-bottom: 15px;
+        background: #f7f7f7;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+    }
+    .login-form h2 {
+        margin: 0 0 15px;
+    }
+    .form-control, .btn {
+        min-height: 38px;
+        border-radius: 2px;
+    }
+    .btn {        
+        font-size: 15px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+<div class="login-form">
+    <form id="userForm" th:action="@{/auth/autentication}" th:object="${userForm}" action="#" method="post">
+        <h2 class="text-center">Acesse A Livraria Alba</h2>       
+        <div class="form-group">
+            <input  th:field="*{username}" type="text" class="form-control" placeholder="Username" required="required">
+            <span  th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Nome Error</span><br/>
+        </div>
+        <div class="form-group">
+            <input th:field="*{password}" type="password" class="form-control" placeholder="Password" required="required">
+            <span  th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Nome Error</span><br/>
+        </div>
+        <div class="form-group">
+            <button type="submit" name="login" value="login" class="btn btn-primary btn-block">Log in</button>
+        </div>
+        <div class="clearfix">
+            <label class="pull-left checkbox-inline"><input type="checkbox"> Manter conectado</label>
+            <a href="#" class="pull-right">Esqueceu sua Senha?</a>
+        </div>        
+    </form>
+    <p class="text-center"><a href="#" th:href="@{/auth/registration}">Crie Sua Conta Agora!</a></p>
+</div>
+
+</body>
+</html>
