@@ -13,9 +13,20 @@ public class AutorService {
 
 	@Autowired
 	AutorRepository autorRepository;
-
-	public List<Autor> listaAutores() {
+	
+	public List<Autor> listarTodosAutores() {
 		return autorRepository.findAll();
 	}
-
+	
+	public void salvar(Autor autor) {
+		autorRepository.save(autor);
+	}
+	
+	public Autor buscaAutor(Long id) {
+		return autorRepository.findById(id).orElseThrow(() -> new RuntimeException());
+	}
+	
+	public void excluirAutor(Long id) {
+		autorRepository.deleteById(id);
+	}
 }
